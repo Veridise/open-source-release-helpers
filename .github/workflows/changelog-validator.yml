@@ -29,17 +29,12 @@ jobs:
         with:
           # ${{ github.action_repository }} ends up pointing to actions/checkout@v4
           repository: Veridise/open-source-release-helpers
-          path: "$GITHUB_WORKSPACE/release_helpers"
+          path: release_helpers
           persist-credentials: false
 
       - name: Copy release helper Python requirements to current repo root
         if: ${{ steps.check_pre_release_branch.outputs.skip_validation == 0 }}
         run: |
-          ls $GITHUB_WORKSPACE
-          ls $GITHUB_WORKSPACE/release_helpers
-          pushd $GITHUB_WORKSPACE/release_helpers
-          git remote -v
-          popd
           cat "$GITHUB_WORKSPACE/release_helpers/requirements.txt" >> requirements.txt
 
       - name: Setup python
