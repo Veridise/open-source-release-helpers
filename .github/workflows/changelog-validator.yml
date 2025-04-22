@@ -37,6 +37,7 @@ jobs:
         with:
           python-version: "3.11"
           cache: "pip" # caching pip dependencies
+          cache-dependency-path: "$GITHUB_WORKSPACE/release_helpers/requirements.txt"
 
       - name: Setup node
         if: ${{ steps.check_pre_release_branch.outputs.skip_validation == 0 }}
