@@ -27,7 +27,8 @@ jobs:
         if: ${{ steps.check_pre_release_branch.outputs.skip_validation == 0 }}
         uses: actions/checkout@v4
         with:
-          repository: ${{ github.action_repository }}
+          # ${{ github.action_repository }} ends up pointing to actions/checkout@v4
+          repository: github.com/Veridise/open-source-release-helpers
           path: "$GITHUB_WORKSPACE/release_helpers"
           persist-credentials: false
 
