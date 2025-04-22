@@ -31,11 +31,16 @@ jobs:
           path: "$GITHUB_WORKSPACE/release_helpers"
           persist-credentials: false
 
+      - name: Copy release helper Python requirements to current repo root
+        run: |
+          cat "$GITHUB_WORKSPACE/release_helpers" >> requirements.txt
+
       - name: Setup python
         if: ${{ steps.check_pre_release_branch.outputs.skip_validation == 0 }}
         uses: actions/setup-python@v5
         with:
           python-version: "3.11"
+          cache: "pip" # caching pip dependencies
 
       - name: Setup node
         if: ${{ steps.check_pre_release_branch.outputs.skip_validation == 0 }}
