@@ -34,6 +34,9 @@ jobs:
       - name: Copy release helper Python requirements to current repo root
         if: ${{ steps.check_pre_release_branch.outputs.skip_validation == 0 }}
         run: |
+          pushd "$GITHUB_WORKSPACE/release_helpers"
+          git remote -v
+          popd
           cat "$GITHUB_WORKSPACE/release_helpers/requirements.txt" >> requirements.txt
 
       - name: Setup python
