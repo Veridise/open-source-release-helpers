@@ -49,4 +49,4 @@ as a submodule.
 - `.github/workflows`: Workflows that can be dispatched by other repositories for changelog validation and release preparation/creation.
 - `changelog_updater/`: Python utility to update the changelog.
 - `mdx-validate/`: Validates the changelog MDX.
-- `scripts/`: Contains the primary scripts used by the workflow. See [the usage docs below](#script-usage) for manual usage examples.
+- `scripts/`: Contains the primary scripts used by the workflow. See [the usage docs](scripts/README.md) for manual usage examples.
