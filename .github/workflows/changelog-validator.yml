@@ -32,6 +32,7 @@ jobs:
           persist-credentials: false
 
       - name: Copy release helper Python requirements to current repo root
+        if: ${{ steps.check_pre_release_branch.outputs.skip_validation == 0 }}
         run: |
           cat "$GITHUB_WORKSPACE/release_helpers" >> requirements.txt
 
