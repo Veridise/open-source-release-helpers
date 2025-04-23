@@ -61,4 +61,4 @@ jobs:
       - name: Validate change log entry for current branch
         if: ${{ steps.check_pre_release_branch.outputs.skip_validation == 0 }}
         run: |
-          BRANCH_NAME=${{ github.event.pull_request.head.ref }} $GITHUB_WORKSPACE/release_helpers/scripts/validateChangelogEntry.sh
+          BRANCH_NAME="${{ github.event.pull_request.head.ref }}" $GITHUB_WORKSPACE/release_helpers/scripts/validateChangelogEntry.sh

@@ -10,6 +10,7 @@ MDX_TEMP_FILE="${MDX_VALIDATOR_FOLDER}/${MDX_TEMP_FILENAME}"
 YAML_TEMPLATE=$(dirname "$0")/template.yaml
 
 BRANCH_NAME=${BRANCH_NAME:-$(git branch --show-current)}
+echo "Validating changelog for branch $BRANCH_NAME..."
 BRANCH_NAME=$(echo "$BRANCH_NAME" | sed -r 's/\//__/g')
 CHANGELOG_FILE="${CHANGELOG_INPUT}/${BRANCH_NAME}.yaml"
 
