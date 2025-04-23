@@ -30,6 +30,8 @@ jobs:
           # ${{ github.action_repository }} ends up pointing to actions/checkout@v4
           repository: Veridise/open-source-release-helpers
           path: release_helpers
+          # testing override
+          ref: a59fdf0f7a017c7948156eac47d8cb0823882520
           persist-credentials: false
 
       - name: Copy release helper Python requirements to current repo root

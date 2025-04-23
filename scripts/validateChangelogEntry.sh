@@ -1,7 +1,5 @@
 #!/usr/bin/env bash
 
-set -x
-
 CHANGELOG_INPUT="${CHANGELOG_INPUT:-"changelogs/unreleased"}"
 CHANGELOG_APP=$(dirname "$0")/../changelog_updater/generate_changelog.py
 MDX_VALIDATOR_FOLDER=$(dirname "$0")/../mdx-validate
