@@ -7,7 +7,7 @@ MDX_TEMP_FILENAME="TEST.md"
 MDX_TEMP_FILE="${MDX_VALIDATOR_FOLDER}/${MDX_TEMP_FILENAME}"
 YAML_TEMPLATE=$(dirname "$0")/template.yaml
 
-BRANCH_NAME=$(git symbolic-ref --short -q HEAD | sed -r 's/\//__/g' )
+BRANCH_NAME=${BRANCH_NAME:-$(git symbolic-ref --short -q HEAD | sed -r 's/\//__/g' )}
 CHANGELOG_FILE="${CHANGELOG_INPUT}/${BRANCH_NAME}.yaml"
 
 echo "Searching if changelog file ${CHANGELOG_FILE} exists..."
