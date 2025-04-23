@@ -61,8 +61,4 @@ jobs:
       - name: Validate change log entry for current branch
         if: ${{ steps.check_pre_release_branch.outputs.skip_validation == 0 }}
         run: |
-          pushd $GITHUB_WORKSPACE
-          echo "pwd = $(pwd)"
-          echo "Current branch is $(git branch --show-current), or ${{ github.ref}} according to github"
-          BRANCH_NAME=${{ github.ref }} $GITHUB_WORKSPACE/release_helpers/scripts/validateChangelogEntry.sh
-          popd
+          BRANCH_NAME=${{ github.event.pull_request.head.ref }} $GITHUB_WORKSPACE/release_helpers/scripts/validateChangelogEntry.sh
