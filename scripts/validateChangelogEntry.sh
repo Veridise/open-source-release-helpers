@@ -17,7 +17,7 @@ test -f ${CHANGELOG_FILE}
 exit_code=$?
 if [ $exit_code -eq  1 ]; then
     echo "File ${CHANGELOG_FILE} does not exist."
-    echo "Run './release_helpers/scripts/createChangelogEntry.sh' to create it."
+    echo "Run 'create-changelog' (if in a nix shell) or './release_helpers/scripts/createChangelogEntry.sh' (if using a local copy of this repo) to create it."
     exit 1
 fi
 echo "Check if ${CHANGELOG_FILE} has been edited..."
